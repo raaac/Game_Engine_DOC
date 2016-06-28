@@ -5,7 +5,7 @@
 var game = new Game(
     38 * 32, //canvas width
     20 * 32, //canvas height
-    "#game_container" //canvas dom parent
+    "#game_container" //canvas parent
 );
 
 var access = game.access();
@@ -50,13 +50,13 @@ this line return the state of all downloads in percent (from 0 to 100)
 assets.getDownloadState();
 //this line return the state of all downloads in percent (from 0 to 100)
 ```
-##Creating game loop and delta time
+##Creating game loop (with delta time)
 
 ```javascript
 game.update = function () {
     
     access.clearRect(0, 0, game.w, game.h);
-        rect.x -= deltaSpeed(rect.xv, game.delta); //calculating delta time
+        rect.x -= deltaSpeed(rect.xv, game.delta); //calculating delta speed
 }
 
 game.render = function () {
@@ -88,7 +88,7 @@ game.render = function () {
 var keyboard = new KeyboardHandler();
 keyboard.listen([keyboard.ARROWLEFT, keyboard.ARROWRIGHT]);
 
-//Detect key pressing in 'game update'
+//Detect key pressed in 'game update'
 game.update = function () {
     
     if (keyboard.isDown(keyboard.ARROWLEFT)) {
