@@ -5,7 +5,11 @@
 var game = new Game(
     38 * 32, //canvas width
     20 * 32, //canvas height
-    "#game_container" //canvas parent
+    "#game_container",//canvas parent
+    {
+    update: update,
+    render: render
+    }
 );
 
 var access = game.access();
@@ -53,16 +57,12 @@ assets.getDownloadState();
 ##Creating game loop (with delta time)
 
 ```javascript
-game.update = function () {
-    
-    access.clearRect(0, 0, game.w, game.h);
+function update() {
+  access.clearRect(0, 0, game.w, game.h);
         rect.x -= deltaSpeed(rect.xv, game.delta); //calculating delta speed
 }
-
-game.render = function () {
-    
-    access.fillRect(rect.x, rect.y, rect.w, rect.h);
-    
+function render() {
+ access.fillRect(rect.x, rect.y, rect.w, rect.h);
 }
 ```
 
