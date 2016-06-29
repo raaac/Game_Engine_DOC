@@ -89,7 +89,7 @@ var keyboard = new KeyboardHandler();
 keyboard.listen([keyboard.ARROWLEFT, keyboard.ARROWRIGHT]);
 
 //Detect key pressed in 'game update'
-game.update = function () {
+function update() {
     
     if (keyboard.isDown(keyboard.ARROWLEFT)) {
         //arrow left is pressed !
